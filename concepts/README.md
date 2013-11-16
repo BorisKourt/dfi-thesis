@@ -1,0 +1,1 @@
+The concept art in this area was created with the invaluable help of [Chenthooran Nambiarooran](http://chenthooran.com/). Do check out his [portfolio](http://chenthooran.com/) if you are looking to hire an artist for your project.
