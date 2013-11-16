@@ -81,7 +81,7 @@ module bkThesisShoulder() {
 				translate([-(width / 2) - 10,(depth / 2) + 22,0]) {
 					rotate(a=[0,0,200]) cube([width, width, height * 4], center = true);
 				}
-				translate([0,2,26]) {
+				translate([0,2,22]) {
 					cube([width - 10, depth - 18, height * 2], center = true);
 				}
 			}
@@ -89,11 +89,17 @@ module bkThesisShoulder() {
 		
 		module grips() {
 			union() {
-				translate([-(width / 2) + 12,-(depth / 2) - 1,0]) {
-					rotate(a=[0,0,55]) cube([3,depth, height * 0.4], center = true);
+				translate([-(width / 2) + 12,-(depth / 2) - 1,-1]) {
+					rotate(a=[0,0,55]) cube([3,depth, height * 0.3], center = true);
 				}
-				translate([(width / 2) + 1,-(depth / 2) + 8,0]) {
-					rotate(a=[0,0,305]) cube([3, depth, height * 0.4], center = true);
+				translate([(width / 2) + 1,-(depth / 2) + 8,-1]) {
+					rotate(a=[0,0,305]) cube([3, depth, height * 0.3], center = true);
+				}
+				translate([-(width / 2) + 12,-(depth / 2) - 1,5]) {
+					rotate(a=[0,45,55]) cube([2.1,depth, 2.1], center = true);
+				}
+				translate([(width / 2) + 1,-(depth / 2) + 8,5]) {
+					rotate(a=[0,45,305]) cube([2.1, depth, 2.1], center = true);
 				}
 			}
 		}
