@@ -1,0 +1,61 @@
+% -*- root: ../thesis.tex -*-
+%%%%%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%%
+%%%
+%   Author: Boris Kourtoukov
+%   Project: Digital Futures Thesis Document
+%   Title: Periphery
+%   File: Packages
+%%%
+%%%%%%%%%%%%--------------------------%%%%%%%%%%%%
+
+\usepackage[utf8]{inputenc}
+\usepackage{subfiles}
+\usepackage[T1]{fontenc}
+\usepackage{baskervald}
+\usepackage{graphicx}
+\usepackage{datetime}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{amsmath} 
+\usepackage{booktabs} 
+\usepackage{units}    
+\usepackage{qtree}
+\usepackage{fancyvrb}
+\usepackage{xspace}
+\usepackage{fontspec}
+\usepackage{units}
+\usepackage{makeidx}
+
+\graphicspath{{assets}}
+
+\definecolor{darkcerulean}{rgb}{0.03, 0.27, 0.49}
+\definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Hacker, Maker, Play >},    % title
+    pdfauthor={Boris Kourtoukov},        % author
+    pdfkeywords={Hacker}{Maker}{Play}{Critical}, % list of keywords
+    pdfnewwindow=true,      % links in new window
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=darkcerulean,          % color of internal links (change box color with linkbordercolor)
+    citecolor=darkcerulean,        % color of links to bibliography
+    filecolor=darkcerulean,      % color of file links
+    urlcolor=darkblue           % color of external links
+}
+
+\setmainfont[Mapping=tex-text,Numbers=OldStyle]{Bergamo Pro}
+\setsansfont[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Chantilly}
+
+%\usepackage[]{minted}
+%\BeforeBeginEnvironment{minted}{\begin{tcolorbox}[arc=0mm,colback=yellow!9!white,colframe=yellow!9!white]}
+%\AfterEndEnvironment{minted}{\end{tcolorbox}}
+
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\fvset{fontsize=\normalsize}

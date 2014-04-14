@@ -1,0 +1,132 @@
+% --- root<
+%%%%%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%%
+%%%
+% 	Author: Boris Kourtoukov
+%   Project: Digital Futures Thesis Document
+%   Title: Periphery
+% 	File: Index
+%%%
+%%%%%%%%%%%%--------------------------%%%%%%%%%%%%
+
+\documentclass{tufte-book}
+
+	\input{includes/packages.tex}
+	\input{includes/commands.tex}
+
+
+	\title{Periphery}
+	\author[Boris Kourtoukov]{Boris Kourtoukov}
+	\publisher{Digital Futures}
+
+
+	\makeindex
+
+\begin{document}
+
+%------------------------------------------------%
+% 	Frontmatter
+
+	\frontmatter
+		\input{frontmatter/front.tex}
+
+
+%------------------------------------------------%
+% 	Mainmatter
+
+	\mainmatter
+		\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%%
+%%%
+% 	Chapter 1 - Introduction
+%%%
+%%%%%%%%%%%%--------------------------%%%%%%%%%%%%
+
+	\chapter{Introduction}\label{ch:introduction}
+		\input{chapter-one/introduction.tex}
+
+		\section{Context}\label{sec:context}
+			\input{chapter-one/context.tex}
+
+		\section{Background}\label{sec:background}
+			\input{chapter-one/background.tex}
+
+%------------------------------------------------%
+%   Chapter 1 END
+		\cleardoublepage
+
+
+%%%%%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%%
+%%%
+% 	Chapter 2 - Periphery
+%%%
+%%%%%%%%%%%%--------------------------%%%%%%%%%%%%
+
+	\chapter{Periphery}\label{ch:periphery}
+		\input{chapter-two/narrative.tex}
+
+%------------------------------------------------%
+%   Chapter 2 END
+		\cleardoublepage
+
+
+%%%%%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%%
+%%%
+% 	Chapter 3 - Development
+%%%
+%%%%%%%%%%%%--------------------------%%%%%%%%%%%%
+
+	\chapter{Development}\label{ch:development}
+		\input{chapter-three/introduction.tex}
+
+		\section{Prototyping}\label{sec:prototyping}
+			\input{chapter-three/prototyping.tex}
+
+		\section{Testing}\label{sec:testing}
+			\input{chapter-three/testing.tex}
+
+		\section{Code}\label{sec:code}
+			\input{chapter-three/code.tex}
+
+%------------------------------------------------%
+%   Chapter 3 END
+		\cleardoublepage
+
+
+%%%%%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%%
+%%%
+% 	Chapter 4 - Outcomes
+%%%
+%%%%%%%%%%%%--------------------------%%%%%%%%%%%%
+
+	\chapter{Outcomes}\label{ch:outcomes}
+		\input{chapter-four/outcomes.tex}
+
+%------------------------------------------------%
+%   Chapter 4 END
+		\cleardoublepage
+
+
+%%%%%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%%
+%%%
+% 	Chapter 5 - Looking Forward
+%%%
+%%%%%%%%%%%%--------------------------%%%%%%%%%%%%
+
+	\chapter{Looking Forward}\label{ch:looking-forward}
+		\input{chapter-five/future.tex}
+
+%------------------------------------------------%
+%   Chapter 5 END
+		\cleardoublepage
+
+
+%------------------------------------------------%
+% 	Backmatter 
+
+	\backmatter
+		\input{backmatter/bibliography.tex}
+		\input{backmatter/back.tex}
+
+
+\end{document}
