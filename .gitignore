@@ -7,6 +7,8 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 *.pdf
+*.sublime-project
+*.sublime-workspace
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
