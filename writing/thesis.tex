@@ -8,14 +8,14 @@
 %%%
 %%%%%%%%%%%%--------------------------%%%%%%%%%%%%
 
-\documentclass{tufte-book}
+\documentclass[nofonts,sfsidenotes]{tufte-book}
 
 	\input{includes/packages.tex}
 	\input{includes/commands.tex}
 
 	\title{Periphery}
 	\author[Boris Kourtoukov]{Boris Kourtoukov}
-	\publisher{Digital Futures}
+	\publisher{Digital Futures Undergraduate Thesis}
 
 	\makeindex
 
@@ -26,13 +26,15 @@
 
 	\frontmatter
 		\input{frontmatter/front.tex}
+	\chapter*{\textsc{readme}\sidenote[][-2pt]{Because everything needs one.}}\label{ch.readme}
+		\input{frontmatter/readme.tex}
 
 
 %------------------------------------------------%
 % 	Mainmatter
 
 	\mainmatter
-		\cleardoublepage
+		%\cleardoublepage
 
 %%%%%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%%
 %%%
@@ -40,7 +42,7 @@
 %%%
 %%%%%%%%%%%%--------------------------%%%%%%%%%%%%
 
-	\chapter{Introduction}\label{ch:introduction}
+	\chapter{Surroundings}\label{ch:introduction}
 		\input{chapter-one/introduction.tex}
 
 		\section{Context}\label{sec:context}
@@ -51,7 +53,7 @@
 
 %------------------------------------------------%
 %   Chapter 1 END
-		\cleardoublepage
+		%\cleardoublepage
 
 
 %%%%%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%%
@@ -65,7 +67,7 @@
 
 %------------------------------------------------%
 %   Chapter 2 END
-		\cleardoublepage
+		%\cleardoublepage
 
 
 %%%%%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%%
@@ -88,7 +90,7 @@
 
 %------------------------------------------------%
 %   Chapter 3 END
-		\cleardoublepage
+		%\cleardoublepage
 
 
 %%%%%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%%
@@ -102,7 +104,7 @@
 
 %------------------------------------------------%
 %   Chapter 4 END
-		\cleardoublepage
+		%\cleardoublepage
 
 
 %%%%%%%%%%%%%%%%%%%%----------%%%%%%%%%%%%%%%%%%%%
@@ -116,14 +118,15 @@
 
 %------------------------------------------------%
 %   Chapter 5 END
-		\cleardoublepage
+		%\cleardoublepage
 
 
 %------------------------------------------------%
 % 	Backmatter 
 
 	\backmatter
-		\bibliography{resources}
+		\bibliographystyle{harvard.sty}
+		\bibliography{resources.bib}
 		\input{backmatter/back.tex}
 
 

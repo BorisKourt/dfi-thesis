@@ -9,23 +9,28 @@
 %%%%%%%%%%%%--------------------------%%%%%%%%%%%%
 
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{subfiles}
 \usepackage{graphicx}
 \usepackage{datetime}
-\usepackage{hyperref} 
 \usepackage{booktabs} 
 \usepackage{units}    
 \usepackage{qtree}
 \usepackage{fancyvrb}
 \usepackage{xspace}
 \usepackage{makeidx}
+\usepackage{har2nat}
 \usepackage{fontspec}
+\usepackage{fancybox}
+
+\makeindex
 
 \graphicspath{{assets}}
 
+%\bibpunct{(}{)}{;}{z}{,}{,}
+
 \definecolor{darkcerulean}{rgb}{0.03, 0.27, 0.49}
 \definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
+\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
 \hypersetup{
     bookmarks=true,         % show bookmarks bar?
     unicode=false,          % non-Latin characters in Acrobat’s bookmarks
@@ -41,7 +46,7 @@
     linkcolor=darkcerulean,          % color of internal links (change box color with linkbordercolor)
     citecolor=darkcerulean,        % color of links to bibliography
     filecolor=darkcerulean,      % color of file links
-    urlcolor=darkblue           % color of external links
+    urlcolor=cadmiumgreen           % color of external links
 }
 
 \setmainfont[Mapping=tex-text,Numbers=OldStyle]{Bergamo Pro}

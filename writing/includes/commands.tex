@@ -106,3 +106,29 @@
 \newcommand{\docmsg}[2]{\bigskip\begin{fullwidth}\noindent\ttfamily#1\end{fullwidth}\medskip\par\noindent#2}
 \newcommand{\docfilehook}[2]{\texttt{#1}\index{file hooks!#2}\index{#1@\texttt{#1}}}
 \newcommand{\doccounter}[1]{\texttt{#1}\index{#1 counter@\texttt{#1} counter}}
+
+\newcommand{\bksq}[1] {
+  \par\noindent\rule{6.64in}{0.5pt} \\
+  \vspace{1.2em}
+  \marginnote[1.4em]{#1\par\vspace{1.4em}\noindent\rule{2in}{0.5pt}}
+  \par
+}
+
+\newcommand{\bksf}[1] {
+  \vspace{0.6em}
+  \par\footnotesize{#1}
+}
+
+\newcommand{\marginQuestion}[1] { % New Para
+  \normalsize\textit{#1}
+}
+
+\newcommand{\mqp}[1] { % New Page
+  \marginnote[0.4em]{\marginQuestion{#1}}
+}
+\newcommand{\mqt}[1] { % New Thought
+  \marginnote[2.2em]{\marginQuestion{#1}}
+}
+\newcommand{\mqs}[1] { % New Para
+  \marginnote[1em]{\marginQuestion{#1}}
+}
