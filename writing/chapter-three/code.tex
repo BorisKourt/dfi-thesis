@@ -21,7 +21,7 @@ The xBee\sidenote{\url{http://www.digi.com/xbee/}} is a set wireless communicati
   \label{fig:xbeecomms}
 \end{figure}
 
-As mentioned in \nameref{subsec:physicalcomputing} it was brought up that there can be a near indefinite number of sensor modules for a single controller. The way that this is established currently is by the arrangement of sensors for each module. For example, a light sensor will always be in `slot' zero on a module. When the controller receives a message from a module with a value at slot zero, it automatically knows that that sensor is gathering light data. If any other positions are filled, it also knows that the sending module is gathering data from those sensors. For the current prototypes the sensors are as follows: 
+As mentioned in \nameref{subsec:physicalcomputing} there can be a near indefinite number of sensor modules for a single controller. The way that this is established currently is by the arrangement of sensors for each module. For example, a light sensor will always be in `slot' zero on a module. When the controller receives a message from a module with a value at zero, it automatically knows that that sensor is gathering light data. If any other positions are filled, it also knows that the sending module is gathering data from those sensors as well. For the current prototypes the sensors are as follows: 
 
 \begin{description}
   \item[0] Light
@@ -36,7 +36,7 @@ As mentioned in \nameref{subsec:physicalcomputing} it was brought up that there 
 
 \mqt{Why the xBee in particular?}
 \newthought{This demonstrates one} of the core benefits of the xBee modules, they can act as independent and remote inputs to any external microcontroller. All without having to be attached directly to a microcontroller at all. This snippet waits for any xBee on the current network to send a packet, when that packet is received a simple check can determine which `slot'(pin) on the xBee is occupied by an analog sensor and what data that sensor is sending. From this building block the rest of the program grew.
-Another inherit benefit of the xBee is that it handles all traffic routing and connections internally. Not having to do that configuration on module to module basis makes it far less likely for errors or inconsistencies to arise. This is also what enables effortless scaling, if a new module enters or an existing module leaves the network it will be recognized within milliseconds preventing drops in data collection.  
+Another inherit benefit of the xBee is that it handles all traffic routing and connections internally. Not having to do that configuration on a module to module basis makes it far less likely for errors or inconsistencies to arise. This is also what enables effortless scaling, if a new module enters or an existing module leaves the network it will be recognized within milliseconds preventing drops in data collection.  
 
 \FloatBarrier
 \subsection{The Application Programming Interface}\label{subsec:api}
