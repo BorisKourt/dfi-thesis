@@ -10,6 +10,7 @@ Desktop.ini
 *.sublime-project
 *.sublime-workspace
 writing/includes/graphics/
+stino.settings
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

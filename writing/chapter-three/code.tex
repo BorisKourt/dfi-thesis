@@ -8,12 +8,61 @@
 %%%
 %%%%%%%%%%%%--------------------------%%%%%%%%%%%%
 
-This section will focus on the API and communication system of Periphery.
-
-\subsection{Application Point Interface} 
-
-Text
+This chapter will focus on the API and communication system of Periphery. Code has been one of the main challenges for this project, especially when it is interfacing with the various pieces of hardware.
 
 \subsection{xBee Communication}
 
-Text
+\mqs{What is an xBee?}
+The xBee\sidenote{\url{http://www.digi.com/xbee/}} is a set wireless communication modules created by Digi International that can create highly reliable networks between physical devices.
+
+\begin{figure}
+  \includegraphics{Flow.pdf}
+  \caption{This is the flow of data between modules and the controller. Entirely facilitated by xBees embedded in every device}
+  \label{fig:xbeecomms}
+\end{figure}
+
+Some text
+
+\lstinputlisting[language=c,frame=single]{includes/code/xbee-basic.ino}
+
+Some text
+
+\FloatBarrier
+\subsection{The Application Programming Interface} 
+
+% \begin{figure}
+%   \includegraphics{EDN.pdf}
+%   \caption{The base EDN Data structure.}
+%   \label{fig:edn}
+% \end{figure}
+
+\begin{lstlisting}[language=clojure,frame=single]
+{:time    "timestring"
+ :sessID  7054
+ :modules [{:addr   123456
+            :active 1
+            :sensors[123 
+                     124 
+                     0 
+                     0]}]}
+\end{lstlisting}
+
+\mqs{What is EDN?}
+Extensible Data Notation (EDN)\sidenote{\url{https://github.com/edn-format/edn}} was the format chosen to store and transmit data from the modules. EDN is a highly flexible data notation system, the syntax of entire languages can be described and implemented using it. One of it's core aims is to avoid obsolescence by design, rather than mimicking and adhering to the requirements of a single language\sidenote{Something that the Javascript Object Notation (JSON) does heavily} it instead focuses on being as reusable as possible.
+
+The above snippet of EDN is the entire `message' that is logged or sent from the Core module. Each message contains:
+
+\begin{enumerate}
+  \item The exact time the message was received
+  \item A unique id for the message during the current session
+  \item A an indefinite vector of modules:
+  \begin{enumerate}
+    \item The module address
+    \item Whether it is active or not
+    \item A Vector of sensor values 
+  \end{enumerate}
+\end{enumerate}
+
+This structure can contain any number of modules, can indicate if the module is inactive or active and can expand to contain numerous sensors per module. 
+
+One of the core benefits of this message is that it can be the same no matter where the data is. The same message is sent real-time via Bluetooth to any mobile phone, and the same message is logged directly to an SD card. It can then be `parsed' with the same piece of code logic on any device that needs to consume it.

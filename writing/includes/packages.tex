@@ -22,6 +22,17 @@
 \usepackage{har2nat}
 \usepackage{fontspec}
 \usepackage[maxfloats=25]{morefloats}
+\usepackage{listings}
+
+\input{includes/clojure-listing.tex}
+
+\lstset{numbers=left,
+        numberstyle=\tiny\ttfamily,
+        stepnumber=2,
+        numbersep=5pt,
+        basicstyle =\scriptsize\ttfamily,
+        stringstyle =\ttfamily, % typewriter type for strings
+        showstringspaces=false}
 
 \makeindex
 
@@ -52,6 +63,7 @@
 
 \setmainfont[Mapping=tex-text,Numbers=OldStyle]{Bergamo Pro}
 \setsansfont[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Chantilly}
+\setmonofont[Mapping=tex-text]{Menlo}
 
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
 \fvset{fontsize=\normalsize}
