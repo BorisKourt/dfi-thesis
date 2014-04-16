@@ -8,9 +8,9 @@
 %%%
 %%%%%%%%%%%%--------------------------%%%%%%%%%%%%
 
-This chapter will focus on the API and communication system of Periphery. Code has been one of the main challenges for this project, especially when it is interfacing with the various pieces of hardware.
+This section will focus on the API and communication system of Periphery. Code has been one of the main challenges for this project, especially when it is interfacing with the various pieces of hardware.
 
-\subsection{xBee Communication}
+\subsection{xBee Communication}\label{subsec:xbee-comms}
 
 \mqs{What is an xBee?}
 The xBee\sidenote{\url{http://www.digi.com/xbee/}} is a set wireless communication modules created by Digi International that can create highly reliable networks between physical devices.
@@ -21,14 +21,25 @@ The xBee\sidenote{\url{http://www.digi.com/xbee/}} is a set wireless communicati
   \label{fig:xbeecomms}
 \end{figure}
 
-Some text
+As mentioned in \nameref{subsec:physicalcomputing} it was brought up that there can be a near indefinite number of sensor modules for a single controller. The way that this is established currently is by the arrangement of sensors for each module. For example, a light sensor will always be in `slot' zero on a module. When the controller receives a message from a module with a value at slot zero, it automatically knows that that sensor is gathering light data. If any other positions are filled, it also knows that the sending module is gathering data from those sensors. For the current prototypes the sensors are as follows: 
 
-\lstinputlisting[language=c,frame=single]{includes/code/xbee-basic.ino}
+\begin{description}
+  \item[0] Light
+  \item[1] Sound (Amplitude)
+  \item[2] Temperature
+  \item[3] Colour
+\end{description}
 
-Some text
+\newthought{The following snippet} from the larger program is all that is needed to parse the data from each module.\sidenote{The XBee.h is from the Arduino xBee library at \url{https://code.google.com/p/xbee-arduino/}}
+
+\lstinputlisting[language=c,frame=left]{includes/code/xbee-basic.ino}
+
+\mqt{Why the xBee in particular?}
+\newthought{This demonstrates one} of the core benefits of the xBee modules, they can act as independent and remote inputs to any external microcontroller. All without having to be attached directly to a microcontroller at all. This snippet waits for any xBee on the current network to send a packet, when that packet is received a simple check can determine which `slot'(pin) on the xBee is occupied by an analog sensor and what data that sensor is sending. From this building block the rest of the program grew.
+Another inherit benefit of the xBee is that it handles all traffic routing and connections internally. Not having to do that configuration on module to module basis makes it far less likely for errors or inconsistencies to arise. This is also what enables effortless scaling, if a new module enters or an existing module leaves the network it will be recognized within milliseconds preventing drops in data collection.  
 
 \FloatBarrier
-\subsection{The Application Programming Interface} 
+\subsection{The Application Programming Interface}\label{subsec:api}
 
 % \begin{figure}
 %   \includegraphics{EDN.pdf}
@@ -36,7 +47,7 @@ Some text
 %   \label{fig:edn}
 % \end{figure}
 
-\begin{lstlisting}[language=clojure,frame=single]
+\begin{lstlisting}[language=clojure,frame=left]
 {:time    "timestring"
  :sessID  7054
  :modules [{:addr   123456
@@ -54,15 +65,16 @@ The above snippet of EDN is the entire `message' that is logged or sent from the
 
 \begin{enumerate}
   \item The exact time the message was received
-  \item A unique id for the message during the current session
-  \item A an indefinite vector of modules:
+  \item Unique id for the message during the current session
+  \item Indefinite vector of modules:
   \begin{enumerate}
     \item The module address
     \item Whether it is active or not
-    \item A Vector of sensor values 
+    \item Vector of sensor values 
   \end{enumerate}
 \end{enumerate}
 
 This structure can contain any number of modules, can indicate if the module is inactive or active and can expand to contain numerous sensors per module. 
 
-One of the core benefits of this message is that it can be the same no matter where the data is. The same message is sent real-time via Bluetooth to any mobile phone, and the same message is logged directly to an SD card. It can then be `parsed' with the same piece of code logic on any device that needs to consume it.
+\mqs{Why an EDN based API?}
+One of the core benefits of this message is that it can be the same no matter where the data is. The same message is sent real-time via Bluetooth to any mobile phone, and the same message is logged directly to an SD card. It can then be parsed with the same piece of logic on any device that needs to consume it. This is not the entirety, but a solid foundation of a robust API. Developers can reliably build Applications on multiple platforms based around the same set of data. 

@@ -8,4 +8,84 @@
 %%%
 %%%%%%%%%%%%--------------------------%%%%%%%%%%%%
 
-Two physical material explorations were approached in this project 
+Two physical material exploration techniques were attempted in this project: 3D printing and hot wire foam carving. Although neither made it into the final prototype its important to note that both are a good base for future exploration. 
+
+\begin{figure*}
+  \includegraphics{Foam.jpg}
+  \caption{Foam tests, done with a high resistance rubberized coating. Mixed with pigment.}
+  \label{fig:foam}
+\end{figure*}
+
+\begin{figure}
+  \includegraphics{3dprinting.jpg}
+  \includegraphics{2013-11-16.jpg}
+  \caption{3D printed models, this process might be the best way to go forward. The 3D printer used was the Makerbot Replicator 2x. \url{http://makerbot.com/}. This particular printer allows for the possibility of printing a `full enclosure' effectively encasing the final electronics permanently within the plastic structure. As the modules are wireless in both charging and communication this could be an ideal solution for protection against elements.}
+  \label{fig:plastic}
+\end{figure}
+\FloatBarrier
+\newpage
+
+\subsection{Physical Computing}\label{subsec:physicalcomputing}
+
+The bulk of this project went into the development of the electronic components, with code being the glue that holds it all together. There are two major parts to each of the three sensor modules: 
+\begin{marginfigure}
+  \includegraphics{1394032187232.jpg}
+  \caption{Battery module scale}
+  \label{fig:batterypack}
+\end{marginfigure}
+\begin{enumerate}
+  \item Sensors \& transmitter
+  \begin{enumerate}
+    \item xBee radio module
+    \item A combination of two: light, sound, temperature or colour sensors.
+  \end{enumerate} 
+  \item Power management
+  \begin{enumerate}
+    \item Wireless charging circuit
+    \item Lithium Polymer battery cell
+  \end{enumerate}
+\end{enumerate}
+\begin{figure*}
+  \includegraphics{20140321_180443.jpg}
+  \caption{An assembled module, right, with a battery pack of another to the left.}
+  \label{fig:assembledmodule}
+\end{figure*}
+\FloatBarrier
+\newpage
+% \begin{marginfigure}
+%   \includegraphics{20140321_154838.jpg}
+%   \caption{Light and sound sensors prior to integration.}
+%   \label{fig:sensors}
+% \end{marginfigure}
+
+\mqp{Where does the sensor data go? \newline .}
+The final piece of the hardware puzzle is the controller module, this is a more complex piece of equipment that contains:
+\begin{marginfigure}
+  \includegraphics{1395359524767.jpg}
+  \caption{Left to right: Bluetooth radio, SD Data Logger, Real time clock. Prior to being attached.}
+  \label{fig:controllerparts}
+\end{marginfigure}
+\begin{marginfigure}
+  \includegraphics{20140320_204200.jpg}
+  \caption{The assembled controller unit.}
+  \label{fig:controller}
+\end{marginfigure}
+\begin{enumerate}
+	\item Arduino Fio as the data processor.
+	\item A real time clock module, to persist the time stamps explained in the code section later.
+	\item SD card data logging module.
+	\item A Bluetooth radio to communicate data to external Bluetooth devices. (If the devices are available/needed.)
+	\item The xBee controller module to listen to the wireless data from the sensor modules.
+\end{enumerate} 
+
+The design of this system is such that the controller unit is the only one that needs to run any code. This allows for a very much more reliable system, that can be left unattended almost entirely, even in this prototype stage. As described in the points above, the controller acts as the main interface point and can accept much more than just three modules. 
+
+Below is an image of the first time that a network was established between two sensor modules and the controller.
+
+\begin{figure}
+  \includegraphics{firstnetwork.jpg}
+  %\caption{The first time a network was established between modules. Two sensor modules sending data back to the controller}
+  \label{fig:firstnet}
+\end{figure}
+\FloatBarrier
+\newpage
