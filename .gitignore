@@ -9,6 +9,7 @@ Desktop.ini
 *.pdf
 *.sublime-project
 *.sublime-workspace
+writing/includes/graphics/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
