@@ -14,6 +14,43 @@ module poly_Line(h)
   }
 }
 
+module bkTopCap() {
+module core() { 
+				translate([0,2,0]) {
+					cube([width - 10, depth - 17, height * 2], center = true);
+				}
+}
+module hole() {
+	union() {
+				translate([0,15,height]) {
+					rotate(a=[45,0,0]) cube([width - 8, depth - 17, height], center = true);
+				}
+				translate([0,-15,height - 4]) {
+					rotate(a=[-45,0,0]) cube([width - 8, depth - 17, height], center = true);
+				}
+				translate([10,2,height + 16.5]) {
+					rotate(a=[0,-80,0]) cube([width, depth, width], center = true);
+				}
+				translate([-10,2,height + 16.5]) {
+					rotate(a=[0,80,0]) cube([width, depth, width], center = true);
+				}
+				translate([30,2,height - 10.5]) {
+					rotate(a=[0,45,0]) cube([20, depth, 20], center = true);
+				}
+				translate([-30,2,height - 10.5]) {
+					rotate(a=[0,45,0]) cube([20, depth, 20], center = true);
+				}
+				translate([0,2,-22]) {
+					rotate(a=[0,0,0]) cube([width - 8, depth - 15, height * 2], center = true);
+				}
+	}
+}
+
+difference() {
+	core();
+	hole();
+}
+}
 
 module bkThesisShoulder() {
 	
@@ -194,12 +231,15 @@ module bkThesisShoulderBottom() {
 				translate([(width / 2) + 1,depth - 20, height - 60]) {
 					rotate(a=[90,5,65]) cube([20, 100, height + 2], center = true);
 				}
-				translate([0,0,-height]) {
+				translate([0,0,-height + 3]) {
 					cube([width, depth, height], center = true);
 				}
 				translate([0,0,height + 5]) {
 					cube([width, depth, height], center = true);
 				}
+				/*translate([0,0,height - 5]) {
+					rotate(a=[45,0,0]) #cube([width, 4, 4], center = true);
+				}*/
 			}
 		}
 
@@ -289,7 +329,14 @@ module wholeShoulder() {
 		}
 
 }
+union() {
+scale([1.18,0.98,1.18]) {
 
+			bkTopCap();
+}
 scale([1.2,1,1.2]) {
-	wholeShoulder();
+
+			//bkTopCap();
+//wholeShoulder();
+}
 }
